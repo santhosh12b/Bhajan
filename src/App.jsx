@@ -1,6 +1,22 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [timeLeft, setTimeLeft] = useState({ days: 3, hours: 12, minutes: 45, seconds: 0 });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        let { days, hours, minutes, seconds } = prev;
+        seconds--;
+        if (seconds < 0) { seconds = 59; minutes--; }
+        if (minutes < 0) { minutes = 59; hours--; }
+        if (hours < 0) { hours = 23; days--; }
+        return { days, hours, minutes, seconds };
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   // Intersection Observer for scroll animations
   useEffect(() => {
     const observerOptions = {
@@ -42,11 +58,22 @@ function App() {
 
   return (
     <>
+      {/* Ambient glowing background orbs */}
+      <div className="orb orb-1"></div>
+      <div className="orb orb-2"></div>
+      <div className="orb orb-3"></div>
+
       {/* Heavily Emphasized Urgency Bar */}
       <div className="urgency-bar">
         <span className="alert-icon">⏳</span>
         <span>
-          ATTENTION: ONLY <strong>3 DAYS LEFT</strong> TO JOIN THE EXPERIENCE!
+          ATTENTION: REGISTRATION CLOSES IN
+          <span className="countdown-timer">
+            <strong>{String(timeLeft.days).padStart(2, '0')}</strong>d : 
+            <strong>{String(timeLeft.hours).padStart(2, '0')}</strong>h : 
+            <strong>{String(timeLeft.minutes).padStart(2, '0')}</strong>m : 
+            <strong>{String(timeLeft.seconds).padStart(2, '0')}</strong>s
+          </span>
         </span>
         <span className="alert-icon">🔥</span>
       </div>
@@ -62,6 +89,17 @@ function App() {
             Imagine hundreds of voices, live music, powerful beats, and an atmosphere that leaves you feeling lighter, happier, and more connected.
           </p>
 
+          <div className="social-proof">
+            <div className="avatar-stack">
+              <img src="https://ui-avatars.com/api/?name=R&background=random&color=fff" alt="user" />
+              <img src="https://ui-avatars.com/api/?name=P&background=random&color=fff" alt="user" />
+              <img src="https://ui-avatars.com/api/?name=A&background=random&color=fff" alt="user" />
+              <img src="https://ui-avatars.com/api/?name=S&background=random&color=fff" alt="user" />
+              <div className="avatar-more">+500</div>
+            </div>
+            <p>Join <strong>500+ youth</strong> from across Coimbatore</p>
+          </div>
+
           <div className="hero-features">
             <div className="feature-badge">✨ Live Bhajan Jamming</div>
             <div className="feature-badge">🎶 Immersive Music Experience</div>
@@ -74,6 +112,20 @@ function App() {
           <a href="https://www.iskconcoimbatore.com/bhajan-jamming-2026?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcASWK6RleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAafQre0Fa5uLMqaANW-5uFvwim_tPdKl416o1StUIaSjq8NE4n26jqE8TWPcow_aem_MXLn0H14mxpMPKmRnQLXQQ/admin" target="_blank" rel="noopener noreferrer" className="cta-button pulse">🚀 Reserve My Ticket</a>
         </div>
       </header>
+
+      {/* Scrolling Ticker */}
+      <div className="ticker-wrap">
+        <div className="ticker">
+          <div className="ticker-item">🌟 THE BIGGEST KIRTAN EVENT IN COIMBATORE</div>
+          <div className="ticker-item">🎸 LIVE JAMMING SESSIONS</div>
+          <div className="ticker-item">🍛 COMPLIMENTARY PRASADAM</div>
+          <div className="ticker-item">✨ IMMERSIVE EXPERIENCE</div>
+          <div className="ticker-item">🌟 THE BIGGEST KIRTAN EVENT IN COIMBATORE</div>
+          <div className="ticker-item">🎸 LIVE JAMMING SESSIONS</div>
+          <div className="ticker-item">🍛 COMPLIMENTARY PRASADAM</div>
+          <div className="ticker-item">✨ IMMERSIVE EXPERIENCE</div>
+        </div>
+      </div>
 
       {/* Section 2: What Makes This Different */}
       <section className="different-section" id="difference">
@@ -135,6 +187,32 @@ function App() {
             <h3>Ready to experience something better?</h3>
             <a href="https://www.iskconcoimbatore.com/bhajan-jamming-2026?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcASWK6RleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAafQre0Fa5uLMqaANW-5uFvwim_tPdKl416o1StUIaSjq8NE4n26jqE8TWPcow_aem_MXLn0H14mxpMPKmRnQLXQQ/admin" target="_blank" rel="noopener noreferrer" className="cta-button pulse">🚀 Reserve My Ticket Now</a>
             <p className="limited-spots">Limited spots available!</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Testimonials */}
+      <section className="testimonials-section" id="testimonials">
+        <div className="container fade-in">
+          <h2 className="section-title">Don't Just Take <span className="highlight">Our Word</span> For It</h2>
+          <p className="section-intro">Real experiences from our previous attendees.</p>
+          
+          <div className="testimonials-grid">
+            <div className="testimonial-card glass">
+              <div className="stars">⭐⭐⭐⭐⭐</div>
+              <p className="quote">"I came just for the music but left with so much peace. The vibe was unreal!"</p>
+              <p className="author">- Ankit, 22</p>
+            </div>
+            <div className="testimonial-card glass">
+              <div className="stars">⭐⭐⭐⭐⭐</div>
+              <p className="quote">"Not your average gathering. The energy, the people, the prasadam... 10/10."</p>
+              <p className="author">- Sruthi, 24</p>
+            </div>
+            <div className="testimonial-card glass">
+              <div className="stars">⭐⭐⭐⭐⭐</div>
+              <p className="quote">"I’ve never chanted before, but I was dancing by the end of it. Highly recommend!"</p>
+              <p className="author">- Vikram, 21</p>
+            </div>
           </div>
         </div>
       </section>
