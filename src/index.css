@@ -24,6 +24,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -32,6 +34,7 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -599,21 +602,22 @@ section {
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   position: relative;
   z-index: 10;
+  white-space: nowrap;
 }
 .ticker {
   display: flex;
-  width: 200%;
-  animation: ticker 15s linear infinite;
+  width: max-content;
+  animation: ticker 25s linear infinite;
 }
 .ticker-item {
-  width: 25%;
+  flex-shrink: 0;
+  padding: 0 20px;
   text-align: center;
   font-family: var(--font-heading);
   font-weight: 800;
   color: #fff;
   font-size: 1.1rem;
   letter-spacing: 1px;
-  white-space: nowrap;
 }
 @keyframes ticker {
   0% { transform: translateX(0); }
@@ -700,9 +704,11 @@ section {
   .feature-icon { font-size: 3rem; margin-bottom: 15px; }
   
   /* Urgency bar adjustments */
-  .urgency-bar { flex-direction: column; gap: 5px; padding: 10px; text-align: center; }
-  .urgency-bar span { font-size: 0.85rem; line-height: 1.4; }
-  .urgency-bar strong { font-size: 1.25rem; display: block; margin-top: 5px; }
+  .urgency-bar { flex-direction: row; flex-wrap: wrap; gap: 5px; padding: 10px; text-align: center; justify-content: center; }
+  .urgency-bar > span { font-size: 0.85rem; line-height: 1.4; display: flex; flex-direction: column; align-items: center; }
+  .urgency-bar .alert-icon { display: none; }
+  .countdown-timer { display: inline-flex !important; flex-wrap: wrap; justify-content: center; margin-top: 5px; margin-left: 0; }
+  .countdown-timer strong { font-size: 1.1rem; display: inline-block; padding: 2px 4px; margin: 0 2px; }
   
   /* Outro & CTA adjustments */
   .outro-text { font-size: 1.1rem; padding: 25px 15px; margin-top: 30px; }
