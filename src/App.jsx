@@ -1,18 +1,29 @@
 import { useEffect, useState } from 'react';
 
 function App() {
-  const [timeLeft, setTimeLeft] = useState({ days: 3, hours: 12, minutes: 45, seconds: 0 });
+  const calculateTimeLeft = () => {
+    const targetDate = new Date('June 14, 2026 17:00:00').getTime();
+    const now = new Date().getTime();
+    const difference = targetDate - now;
+
+    let timeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60)
+      };
+    }
+    return timeLeft;
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        let { days, hours, minutes, seconds } = prev;
-        seconds--;
-        if (seconds < 0) { seconds = 59; minutes--; }
-        if (minutes < 0) { minutes = 59; hours--; }
-        if (hours < 0) { hours = 23; days--; }
-        return { days, hours, minutes, seconds };
-      });
+      setTimeLeft(calculateTimeLeft());
     }, 1000);
     return () => clearInterval(timer);
   }, []);
@@ -170,7 +181,7 @@ function App() {
 
           <div className="media-gallery">
             <div className="media-item glass contain-img">
-              <img src="/assets/bajan.webp" alt="Bhajan Jamming Poster" loading="lazy" />
+              <img src="/assets/bajan.png" alt="Bhajan Jamming Poster" loading="lazy" />
               <div className="media-caption">Deep Spiritual Connection</div>
             </div>
             <div className="media-item glass">
