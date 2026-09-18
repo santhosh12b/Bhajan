@@ -4,7 +4,9 @@ import { useEffect, useState } from 'react';
 
 export default function Page() {
   const calculateTimeLeft = () => {
-    const targetDate = new Date('2026-09-20T17:30:00+05:30').getTime();
+    // Using Date.UTC (Year, MonthIndex, Day, Hour, Minute, Second)
+    // 2026-09-20 17:30 IST is 12:00:00 UTC (September is month 8)
+    const targetDate = new Date(Date.UTC(2026, 8, 20, 12, 0, 0)).getTime();
     const now = new Date().getTime();
     const difference = targetDate - now;
 
