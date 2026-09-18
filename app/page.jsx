@@ -202,23 +202,23 @@ export default function Page() {
       {/* Section 4: Testimonials */}
       <section className="testimonials-section" id="testimonials">
         <div className="container fade-in">
-          <h2 className="section-title">Don't Just Take <span className="highlight">Our Word</span> For It</h2>
+          <h2 className="section-title">Don&apos;t Just Take <span className="highlight">Our Word</span> For It</h2>
           <p className="section-intro">Real experiences from our previous attendees.</p>
           
           <div className="testimonials-grid">
             <div className="testimonial-card glass">
               <div className="stars">⭐⭐⭐⭐⭐</div>
-              <p className="quote">"I came just for the music but left with so much peace. The vibe was unreal!"</p>
+              <p className="quote">&quot;I came just for the music but left with so much peace. The vibe was unreal!&quot;</p>
               <p className="author">- Ankit, 22</p>
             </div>
             <div className="testimonial-card glass">
               <div className="stars">⭐⭐⭐⭐⭐</div>
-              <p className="quote">"Not your average gathering. The energy, the people, the prasadam... 10/10."</p>
+              <p className="quote">&quot;Not your average gathering. The energy, the people, the prasadam... 10/10.&quot;</p>
               <p className="author">- Sruthi, 24</p>
             </div>
             <div className="testimonial-card glass">
               <div className="stars">⭐⭐⭐⭐⭐</div>
-              <p className="quote">"I’ve never chanted before, but I was dancing by the end of it. Highly recommend!"</p>
+              <p className="quote">&quot;I&apos;ve never chanted before, but I was dancing by the end of it. Highly recommend!&quot;</p>
               <p className="author">- Vikram, 21</p>
             </div>
           </div>
