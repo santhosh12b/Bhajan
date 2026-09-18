@@ -121,6 +121,77 @@ export default function Page() {
         </div>
       </header>
 
+      {/* Event Details Section */}
+      <section className="event-details-section" id="details">
+        <div className="container fade-in">
+          <div className="details-grid">
+            <div className="detail-card glass">
+              <div className="detail-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                </svg>
+              </div>
+              <div className="detail-content">
+                <h3>Date</h3>
+                <p><strong>20 September 2026</strong></p>
+                <span>Sunday</span>
+              </div>
+            </div>
+            <div className="detail-card glass">
+              <div className="detail-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div className="detail-content">
+                <h3>Timing</h3>
+                <p><strong>5:30 PM - 8:00 PM</strong></p>
+              </div>
+            </div>
+            <div className="detail-card glass">
+              <div className="detail-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+                </svg>
+              </div>
+              <div className="detail-content">
+                <h3>Performed By</h3>
+                <p><strong>Kirtan Kovai</strong></p>
+              </div>
+            </div>
+            <div className="detail-card glass">
+              <div className="detail-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z" />
+                </svg>
+              </div>
+              <div className="detail-content">
+                <h3>Entry Fee</h3>
+                <p><strong>₹ 199</strong></p>
+                <span>Per Person</span>
+              </div>
+            </div>
+          </div>
+          <div className="location-card">
+            <div className="detail-icon location-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+              </svg>
+            </div>
+            <div className="detail-content">
+              <h3>Venue</h3>
+              <h2>Music Hive</h2>
+              <p className="address-text">
+                <span>1547, Classic Towers, Trichy Rd,</span>
+                <span>Opp. St. Francis Convent, Highways Colony,</span>
+                <span>Coimbatore, Tamil Nadu 641018</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Scrolling Ticker */}
       <div className="ticker-wrap">
         <div className="ticker">
