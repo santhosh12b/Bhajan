@@ -103,9 +103,9 @@ export default function Page() {
               <img src="https://ui-avatars.com/api/?name=P&background=random&color=fff" alt="user" />
               <img src="https://ui-avatars.com/api/?name=A&background=random&color=fff" alt="user" />
               <img src="https://ui-avatars.com/api/?name=S&background=random&color=fff" alt="user" />
-              <div className="avatar-more">+500</div>
+              <div className="avatar-more">+100</div>
             </div>
-            <p>Join <strong>500+ youth</strong> from across Coimbatore</p>
+            <p>Join <strong>100+ youth</strong> from across Coimbatore</p>
           </div>
 
           <div className="hero-features">
