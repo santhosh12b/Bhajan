@@ -9,7 +9,7 @@ import Script from 'next/script';
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
+      <body>
         <Script id="clarity-script" strategy="afterInteractive">
           {`
             (function(c,l,a,r,i,t,y){
@@ -19,8 +19,8 @@ export default function RootLayout({ children }) {
             })(window, document, "clarity", "script", "yk2p3gwqv5");
           `}
         </Script>
-      </head>
-      <body>{children}</body>
+        {children}
+      </body>
     </html>
   );
 }
